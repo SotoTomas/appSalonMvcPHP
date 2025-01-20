@@ -29,7 +29,7 @@ class Email{
         $mail->Username = $_ENV['EMAIL_USER'];                     //SMTP username
         $mail->Password = $_ENV['EMAIL_PASSWORD'];
 
-        $mail->setFrom('cuentas@appsalon.com');
+        $mail->setFrom('sototomas.nf@gmail.com');
         $mail->addAddress($this->email, $this->nombre);
         $mail->Subject = 'Confirma tu cuenta';
 
@@ -58,7 +58,7 @@ class Email{
         $mail->Username = $_ENV['EMAIL_USER'];                     //SMTP username
         $mail->Password = $_ENV['EMAIL_PASSWORD'];
 
-        $mail->setFrom('cuentas@appsalon.com');
+        $mail->setFrom('sototomas.nf@gmail.com');
         $mail->addAddress($this->email, $this->nombre);
         $mail->Subject = 'Reestablece tu contraseña';
 
