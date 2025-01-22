@@ -31,7 +31,7 @@ function esUltimo(string $actual, string $proximo) : bool{
 }
 
 function isAdmin() : void{
-    if(!isset($_SESSION['admin'])){
+    if(!isset($_SESSION['admin']) || $_SESSION['admin'] !== true){
         header('Location: /');
     }
 }

@@ -140,9 +140,7 @@ class LoginController{
 
 
     public static function crear(Router $router){
-        
         $usuario = new Usuario($_POST);
-        
         $alertas = [];
 
         if( $_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -191,9 +189,9 @@ class LoginController{
     }
 
     public static function confirmar(Router $router){
-
         $alertas= [];
         $token = s($_GET['token']);
+        if(!$token)header('Location: /');
         $usuario = Usuario::where('token', $token);
         
         if(empty($usuario)){
@@ -203,7 +201,7 @@ class LoginController{
             //modificar al usuario confirmado
             Usuario::setAlerta('exito', 'Cuenta confirmada correctamente');
 
-            $usuario->confirmado = "1";
+            $usuario->confirmado = 1;
             $usuario->token = null;
             $usuario->guardar();
         }

@@ -87,8 +87,8 @@ class Usuario extends ActiveRecord{
     public static function where($columna, $valor) {
         // Lógica para buscar un usuario en la base de datos
         $query = "SELECT * FROM usuarios WHERE $columna = '$valor'";
-        $resultado = self::$db->query($query);
-        return $resultado->fetch_object(self::class);
+        $resultado = self::consultarSQL($query);
+        return array_shift($resultado);
     }
     
     //Revisa si el usuario ya existe
