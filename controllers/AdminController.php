@@ -9,7 +9,6 @@ class AdminController{
         session_start();
 
         isAdmin();
-        debuguear($_SESSION);
         $fecha = $_GET['fecha'] ?? date('Y-m-d');
         $fechas = explode('-', $fecha);
         
