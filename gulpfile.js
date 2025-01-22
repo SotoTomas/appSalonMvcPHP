@@ -53,7 +53,7 @@ function procesarImagenes(file, outputSubDir) {
     if (extName.toLowerCase() === '.svg') {
         // If it's an SVG file, move it to the output directory
         const outputFile = path.join(outputSubDir, `${baseName}${extName}`);
-    fs.copyFileSync(file, outputFile);
+        fs.copyFileSync(file, outputFile);
     } else {
         // For other image formats, process them with sharp
         const outputFile = path.join(outputSubDir, `${baseName}${extName}`);
@@ -73,5 +73,5 @@ export function dev() {
     watch('src/img/**/*.{png,jpg}', imagenes)
 }
 
-exports.default = series( js, css, imagenes, dev );
-exports.build = series( js, css, imagenes, dev );
+export default series( js, css, imagenes, dev );
+export const build = series( js, css, imagenes, dev );
